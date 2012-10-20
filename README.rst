@@ -13,6 +13,13 @@ Included Files
 * ``dict_examples.py``: examples of some magic methods using a dict object
 
 
+Pycco-Generated Documentation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ``docs`` directory holds HTML documentation that presents comments and
+docstrings to the left and code to the right.  To view this documentation open
+any of the HTML files in a web browser (usually by double-clicking the file).
+
 References
 ----------
 * `A Guide to Python's Magic Methods <http://www.rafekettler.com/magicmethods.html>`_
