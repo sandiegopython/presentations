@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>dict_examples.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id="background"></div>
+<div id='container'>
+  <div class='section'>
+    <div class='docs'><h1>dict_examples.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Demonstrate examples of some magic methods using a dict object</p>
+<dl>
+<dt>Methods used:</dt>
+<dd><ul>
+<li><tt>__str__</tt>: method called by str function</li>
+<li><tt>__getitem__</tt>: method called by [] operator</li>
+<li><tt>__getattribute__</tt>: method called by getattr function</li>
+<li><tt>__setitem__</tt>: method called by [] operator used for assignment</li>
+<li><tt>__doc__</tt>: variable/attribute automatically assigned to docstring value</li>
+<li><tt>__name__</tt>: assigned to module name (&quot;__main__&quot; when run standalone)</li>
+</ul>
+</dd>
+</dl>
+
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;test key&#39;</span><span class="p">:</span> <span class="s">&#39;test value&#39;</span><span class="p">}</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="n">d</span><span class="o">.</span><span class="n">__str__</span><span class="p">())</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s">&#39;test key&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">d</span><span class="o">.</span><span class="n">__getitem__</span><span class="p">(</span><span class="s">&#39;test key&#39;</span><span class="p">))</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="s">&#39;test key&#39;</span><span class="p">])</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span> <span class="o">==</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s">&#39;keys&#39;</span><span class="p">))</span>
+<span class="k">assert</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s">&#39;keys&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">d</span><span class="o">.</span><span class="n">__getattribute__</span><span class="p">(</span><span class="s">&#39;keys&#39;</span><span class="p">))</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="s">&#39;another key&#39;</span><span class="p">,</span> <span class="s">&#39;another value&#39;</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s">&#39;another key&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;another value&#39;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Print hello!</p>
+
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">test_function</span><span class="p">():</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">print</span> <span class="s">&quot;hello!&quot;</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">test_function</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">==</span> <span class="s">&quot;Print hello!&quot;</span><span class="p">)</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="n">__doc__</span><span class="p">[:</span><span class="mi">29</span><span class="p">]</span> <span class="o">==</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Demonstrate examples of some&quot;</span><span class="p">)</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
