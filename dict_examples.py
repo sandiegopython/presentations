@@ -2,12 +2,12 @@
 Demonstrate examples of some magic methods using a dict object
 
 Methods used:
-* ``__str__``: method called by str function
-* ``__getitem__``: method called by [] operator
-* ``__getattribute__``: method called by getattr function
-* ``__setitem__``: method called by [] operator used for assignment
-* ``__doc__``: variable/attribute automatically assigned to docstring value
-* ``__name__``: assigned to module name ("__main__" when run standalone)
+    * ``__str__``: method called by str function
+    * ``__getitem__``: method called by [] operator
+    * ``__getattribute__``: method called by getattr function
+    * ``__setitem__``: method called by [] operator used for assignment
+    * ``__doc__``: variable/attribute automatically assigned to docstring value
+    * ``__name__``: assigned to module name ("__main__" when run standalone)
 """
 
 d = {'test key': 'test value'}
