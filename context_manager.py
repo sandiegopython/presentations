@@ -1,4 +1,4 @@
-"""Demonstrate creation of a context manager using __enter__ and __exit__"""
+"""Demonstrate making a context manager using ``__enter__`` and ``__exit__``"""
 
 
 class FakeDatabaseConnection:
