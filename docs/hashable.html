@@ -18,6 +18,14 @@
         <a class='octothorpe' href='#section-0'>#</a>
       </div>
       <p>Demonstrate a hashable object with <tt>__hash__</tt> and <tt>__eq__</tt> methods</p>
+<dl>
+<dt>A hashable object:</dt>
+<dd><ul>
+<li>can be used as the key in a dictionary (<tt>{key: value}</tt>)</li>
+<li>can be checked for containment in an iterable (<tt>obj1 in [obj1, obj2]</tt>)</li>
+</ul>
+</dd>
+</dl>
 
     </div>
     <div class='code'>
@@ -93,6 +101,7 @@
 <span class="n">bill</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="mi">8737233212</span><span class="p">,</span> <span class="s">&quot;Bill&quot;</span><span class="p">)</span>
 <span class="n">bob</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="mi">23828283828</span><span class="p">,</span> <span class="s">&quot;Bob&quot;</span><span class="p">)</span>
 <span class="n">rob</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="mi">23828283828</span><span class="p">,</span> <span class="s">&quot;Rob&quot;</span><span class="p">)</span>
+
 
 <span class="n">favorite_colors</span> <span class="o">=</span> <span class="p">{</span><span class="n">mike</span><span class="p">:</span> <span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="n">bill</span><span class="p">:</span> <span class="s">&quot;blue&quot;</span><span class="p">,</span> <span class="n">bob</span><span class="p">:</span> <span class="s">&quot;green&quot;</span><span class="p">}</span>
 <span class="n">favorite_colors</span><span class="p">[</span><span class="n">rob</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;yellow&quot;</span>
