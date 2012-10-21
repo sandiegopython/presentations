@@ -1,7 +1,10 @@
-"""Demonstrate creating a callable object with __call__ method"""
+"""Demonstrate creating a callable object with ``__call__`` method"""
 
 
 class NameSayer:
+
+    """An object which can be called just like a function"""
+
     def __init__(self, name):
         self.name = name
 
@@ -12,5 +15,7 @@ class NameSayer:
 
 
 sayer = NameSayer("Fry")
+sayer.__call__("Bender")  # Prints "Hey Bender!"
+sayer.__call__()  # Prints "Hey Fry!"
 sayer("Bender")  # Prints "Hey Bender!"
 sayer()  # Prints "Hey Fry!"
