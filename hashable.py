@@ -1,4 +1,10 @@
-"""Demonstrate a hashable object with ``__hash__`` and ``__eq__`` methods"""
+"""
+Demonstrate a hashable object with ``__hash__`` and ``__eq__`` methods
+
+A hashable object:
+    * can be used as the key in a dictionary (``{key: value}``)
+    * can be checked for containment in an iterable (``obj1 in [obj1, obj2]``)
+"""
 
 
 class Person:
@@ -20,6 +26,7 @@ mike = Person(6547388493, "Mike")
 bill = Person(8737233212, "Bill")
 bob = Person(23828283828, "Bob")
 rob = Person(23828283828, "Rob")
+
 
 favorite_colors = {mike: "red", bill: "blue", bob: "green"}
 favorite_colors[rob] = "yellow"
