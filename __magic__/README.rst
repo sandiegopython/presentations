@@ -25,3 +25,4 @@ References
 * `A Guide to Python's Magic Methods <http://www.rafekettler.com/magicmethods.html>`_
 * `Data Model Reference from Python Documentation <http://docs.python.org/release/2.7.3/reference/datamodel.html>`_
 * `PEP 257: Docstring Conventions <http://www.python.org/dev/peps/pep-0257/>`_
+* `"in" operator implementation <http://stackoverflow.com/questions/9089400/python-set-in-operator-uses-equality-or-identity>`_
