@@ -8,10 +8,11 @@ used for overridding/extending the "usual" behavior of things.
 Included Files
 --------------
 
-* ``callable.py``: creating a callable object with __call__ method
+* ``callable.py``: creating a callable object with ``__call__`` method
 * ``comparisons.py``: comparing objects using magic comparison methods
-* ``context_manager.py``: create a context manager with __enter__ and __exit__
-* ``hashable.py``: creating a hashable object with __hash__ and __eq__
+* ``context_manager.py``: create a context manager with ``__enter__`` and
+  ``__exit__`` methods
+* ``hashable.py``: creating a hashable object with ``__hash__`` and ``__eq__``
 * ``dict_examples.py``: examples of some magic methods using a dict object
 
 
