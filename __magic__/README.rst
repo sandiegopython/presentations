@@ -1,9 +1,12 @@
 Python __magic__ variables
 ==========================
 
-Magic variables in python are are used for endowing your Python objects with
-special behavior.  These are often methods or attributes that can be defined or
-used for overridding/extending the "usual" behavior of things.
+Magic variables are special variables used for controlling and/or revealing
+some internal Python behavior These variables are user-definable (they're not
+reserved words) and their names start and end with two underscores by
+convention.  These variables can sometimes be used to tweak the behavior of
+Python objects in interesting ways.
+
 
 Included Files
 --------------
