@@ -21,6 +21,12 @@ class Person:
     def __eq__(self, other):
         return self.ssn == other.ssn
 
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return "Person({0}, {1})".format(repr(self.ssn), repr(self.name))
+
 
 mike = Person(6547388493, "Mike")
 bill = Person(8737233212, "Bill")
