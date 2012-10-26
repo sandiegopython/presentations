@@ -16,12 +16,12 @@ assert(str(d) == d.__str__())
 
 assert(d['test key'] == d.__getitem__('test key'))
 
+d.__setitem__('another key', 'another value')
+assert(d['another key'] == 'another value')
+
 assert(d.keys() == ['test key'])
 assert(d.keys == getattr(d, 'keys'))
 assert(getattr(d, 'keys') == d.__getattribute__('keys'))
-
-d.__setitem__('another key', 'another value')
-assert(d['another key'] == 'another value')
 
 def test_function():
     """Print hello!"""
