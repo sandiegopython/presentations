@@ -33,3 +33,4 @@ References
 * `PEP 257: Docstring Conventions <http://www.python.org/dev/peps/pep-0257/>`_
 * `"in" operator implementation <http://stackoverflow.com/questions/9089400/python-set-in-operator-uses-equality-or-identity>`_
 * `"hashable" in Python Glossary <http://docs.python.org/glossary.html#term-hashable>`_
+* `StackOverflow Answer about subclassing dict <http://stackoverflow.com/questions/2328235/pythonextend-the-dict-class>`_
