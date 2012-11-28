@@ -20,8 +20,6 @@ def pdb_test():
     read('list surrounding lines with "l"')  # Type "l" and then type "n" again
     some_function('step into functions by typing "s"')  # Type "s" now
     read("We are outside of the function now!")  # Type "n"
-    for i in range(1, 3):  # Type "n" again
-        write('You will need to type "n" multiple times for this loop: %s' % i)
     write('continue execution by typing "c"')  # Type "c" now
     write('This line and the next one will be skipped since you typed "c"')
     write("Another skipped line")
