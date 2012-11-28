@@ -3,8 +3,8 @@ def read(s):
 
 
 def write(s):
-    """Print out the given string"""
-    print s
+    """Print out the given string\n"""
+    print(s)
 
 
 def some_function(s):  # Type "n" to get to the next line
@@ -26,9 +26,9 @@ def pdb_test():
     write('Done.\n')
     write("more pdb information: http://docs.python.org/2/library/pdb.html\n")
 
-print "import pdb ; pdb.set_trace()"
-print "==\n"
-print "You are about to begin a journey into pdb\n"
-print "Follow instructions on selected lines (lines starting with ->)"
-print "The first one is selected below.  Please read and begin.\n"
+write("import pdb ; pdb.set_trace()")
+write("==\n")
+write("You are about to begin a journey into pdb\n")
+write("Follow instructions on selected lines (lines starting with ->)")
+write("The first one is selected below.  Please read and begin.\n")
 pdb_test()
