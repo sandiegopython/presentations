@@ -1,3 +1,11 @@
+"""import pdb ; pdb.set_trace() -- An interactive pdb demonstration
+
+To execute this script type::
+
+    python pdb_demo.py
+"""
+
+
 def read(s):
     """Do nothing anything at all"""
 
