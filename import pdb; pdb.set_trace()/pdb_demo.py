@@ -5,6 +5,8 @@ To execute this script type::
     python pdb_demo.py
 """
 
+import pdb
+
 
 def read(s):
     """Do nothing anything at all"""
@@ -23,14 +25,20 @@ def some_function(s):  # Type "n" to get to the next line
 
 
 def pdb_test():
-    import pdb ; pdb.set_trace()
+    pdb.set_trace()
     read("continue until next line")  # Type "n" to execute next line
     read('list surrounding lines with "l"')  # Type "l" and then type "n" again
     some_function('step into functions by typing "s"')  # Type "s" now
     read("We are outside of the function now!")  # Type "n"
+    life = 42  # Type "n"
+    read('You can see variables values with "pp"')  # Type "pp life" then "n"
+    read('pp can pretty-print things like dictionaries and lists')  # Type "n"
+    read("It's also possible to reassign variables, just like you would")  # Type "n"
+    read('in a normal python shell')  # type "life = 44" then "n"
     write('continue execution by typing "c"')  # Type "c" now
     write('This line and the next one will be skipped since you typed "c"')
     write("Another skipped line")
+    write("Oh, and life is now set to: %s" % life)
     write('Done.\n')
     write("more pdb information: http://docs.python.org/2/library/pdb.html\n")
 
@@ -40,3 +48,6 @@ write("You are about to begin a journey into pdb\n")
 write("Follow instructions on selected lines (lines starting with ->)")
 write("The first one is selected below.  Please read and begin.\n")
 pdb_test()
+pdb.set_trace()
+read("One last thing, if you know your program is broken")  # type "n"
+read('You can quit with "q"')  # type "q" which will cause a bdb.BdbQuit exception
