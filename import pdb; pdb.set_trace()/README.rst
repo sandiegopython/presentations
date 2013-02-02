@@ -7,6 +7,11 @@ out this demo run it in your Python interpreter::
 
     python pdb_demo.py
 
+This talk started with a demonstration of using pdb to locate a bug in a Django
+model method.  A re-enactment of the demonstration is `available on ascii.io`_.
+
+.. _available on ascii.io: http://ascii.io/a/1974
+
 PDB Commands
 ------------
 Below are the pdb commands I usually use.  The characters in parenthesis are
