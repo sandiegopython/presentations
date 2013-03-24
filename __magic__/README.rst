@@ -34,3 +34,4 @@ References
 * `"in" operator implementation <http://stackoverflow.com/questions/9089400/python-set-in-operator-uses-equality-or-identity>`_
 * `"hashable" in Python Glossary <http://docs.python.org/glossary.html#term-hashable>`_
 * `StackOverflow Answer about subclassing dict <http://stackoverflow.com/questions/2328235/pythonextend-the-dict-class>`_
+* `Better Python APIs <http://ozkatz.github.com/better-python-apis.html>`_
