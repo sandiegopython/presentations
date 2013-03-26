@@ -86,3 +86,56 @@ With List Comprehensions
     >>> non_empty = dict([(k, v) for k, v in properties.items() if v])
     >>> print non_empty
     {'name': 'John Jaques', 'email': 'john@example.com'}
+
+
+Example: find average distance between points
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+You have two lists of points (X-Y coordinates) which are pairs of start points
+and end points.  The first start point coresponds with the first end point, the
+second to the second, and so on.  You want to calculate the average distance
+between coresponding points.
+
+Without List Comprehensions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: pycon
+
+    >>> from math import sqrt
+    >>> total_distance = 0
+    >>> starts = [(6, 4), (9, 7), (4, 7), (9, 9)]
+    >>> ends = [(8, 6), (9, 5), (2, 7), (3, 2)]
+    >>> for i in range(len(starts)):
+    ...     u, v = starts[i]
+    ...     x, y = ends[i]
+    ...     total_distance += sqrt((u - x) ** 2 + (v - y) ** 2)
+    ...
+    >>> average_distance = total_distance / len(starts)
+    >>> print average_distance
+    4.01199289551
+
+Alternately:
+
+.. code-block:: pycon
+
+    >>> from math import sqrt
+    >>> total_distance = 0
+    >>> starts = [(6, 4), (9, 7), (4, 7), (9, 9)]
+    >>> ends = [(8, 6), (9, 5), (2, 7), (3, 2)]
+    >>> for (u,v), (x,y) in zip(starts, ends):
+    ...     total_distance += sqrt((u - x) ** 2 + (v - y) ** 2)
+    ...
+    >>> average_distance = total_distance / len(starts)
+    >>> print average_distance
+    4.01199289551
+
+With List Comprehensions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: pycon
+
+    >>> from math import sqrt
+    >>> starts = [(6, 4), (9, 7), (4, 7), (9, 9)]
+    >>> ends = [(8, 6), (9, 5), (2, 7), (3, 2)]
+    >>> differences = [((u - x), (v - y)) for (u,v),(x,y) in zip(starts, ends)]
+    >>> distances = [sqrt(x * x + y * y) for x,y in differences]
+    >>> average_distance = sum(distances)/len(starts)
+    >>> print average_distance
+    4.01199289551
