@@ -121,6 +121,7 @@ Without List Comprehensions
     4.01199289551
 
 Alternately:
+
 .. code-block:: pycon
 
     >>> from math import sqrt
@@ -148,6 +149,7 @@ With List Comprehensions
     4.01199289551
 
 Alternately:
+
 .. code-block:: pycon
 
     >>> from math import sqrt
@@ -170,7 +172,7 @@ Below are links to resources referenced in the talk.
 - `Look Like a Native`_
 - `Iterables, Iterators, and Generators: Part 1`_
 
-.. _Code Like a Pythonista: List comprehensions & Generator Expressions: http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html#list-comprehensions
+.. _Code Like a Pythonista\: List comprehensions & Generator Expressions: http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html#list-comprehensions
 .. _Expanding, Unpacking, or Splatting: http://pynash.org/2013/03/13/unpacking.html
 .. _Look Like a Native: http://nedbatchelder.com/text/iter.html
 .. _Iterables, Iterators, and Generators\: Part 1: http://excess.org/article/2013/02/itergen1/
