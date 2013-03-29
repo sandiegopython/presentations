@@ -23,6 +23,15 @@ Without List Comprehensions
     >>> print capitalized_lines
     ['Lorem ipsum dolor sit amet,\n', 'Consectetur adipiscing elit.\n', '\n', 'Donec a diam lectus.\n', 'Sed sit amet ipsum mauris.\n']
 
+ Alternately (using map):
+
+ .. code-block:: pycon
+
+    >>> f = open("lorem.txt")
+    >>> capitalized_lines = map(lambda x: x.capitalize(), f)
+    >>> print capitalized_lines
+    ['Lorem ipsum dolor sit amet,\n', 'Consectetur adipiscing elit.\n', '\n', 'Donec a diam lectus.\n', 'Sed sit amet ipsum mauris.\n']
+
 With List Comprehensions
 ~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: pycon
@@ -48,6 +57,15 @@ Without List Comprehensions
     ...     if line.strip():
     ...         non_whitespace_lines.append(line)
     ...
+    >>> print non_whitespace_lines
+    ['lorem ipsum dolor sit amet,\n', 'consectetur adipiscing elit.\n', 'donec a diam lectus.\n', 'sed sit amet ipsum mauris.\n']
+
+ Alternately (using filter):
+
+ .. code-block:: pycon
+
+    >>> f = open("lorem.txt")
+    >>> non_whitespace_lines = filter(lambda x: x.strip(), f)
     >>> print non_whitespace_lines
     ['lorem ipsum dolor sit amet,\n', 'consectetur adipiscing elit.\n', 'donec a diam lectus.\n', 'sed sit amet ipsum mauris.\n']
 
@@ -168,9 +186,9 @@ References
 Below are links to resources referenced in the talk.
 
 - `Code Like a Pythonista: List comprehensions & Generator Expressions`_
-- `Expanding, Unpacking, or Splatting`_
 - `Look Like a Native`_
 - `Iterables, Iterators, and Generators: Part 1`_
+- `Expanding, Unpacking, or Splatting`_
 
 .. _Code Like a Pythonista\: List comprehensions & Generator Expressions: http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html#list-comprehensions
 .. _Expanding, Unpacking, or Splatting: http://pynash.org/2013/03/13/unpacking.html
