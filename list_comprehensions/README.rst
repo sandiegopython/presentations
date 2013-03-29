@@ -127,7 +127,7 @@ Alternately:
     >>> total_distance = 0
     >>> starts = [(6, 4), (9, 7), (4, 7), (9, 9)]
     >>> ends = [(8, 6), (9, 5), (2, 7), (3, 2)]
-    >>> for (u,v), (x,y) in zip(starts, ends):
+    >>> for (u, v), (x, y) in zip(starts, ends):
     ...     total_distance += sqrt((u - x) ** 2 + (v - y) ** 2)
     ...
     >>> average_distance = total_distance / len(starts)
@@ -141,9 +141,9 @@ With List Comprehensions
     >>> from math import sqrt
     >>> starts = [(6, 4), (9, 7), (4, 7), (9, 9)]
     >>> ends = [(8, 6), (9, 5), (2, 7), (3, 2)]
-    >>> differences = [((u - x), (v - y)) for (u,v),(x,y) in zip(starts, ends)]
-    >>> distances = [sqrt(x * x + y * y) for x,y in differences]
-    >>> average_distance = sum(distances)/len(starts)
+    >>> differences = [((u - x), (v - y)) for (u, v), (x, y) in zip(starts, ends)]
+    >>> distances = [sqrt(x * x + y * y) for x, y in differences]
+    >>> average_distance = sum(distances) / len(starts)
     >>> print average_distance
     4.01199289551
 
