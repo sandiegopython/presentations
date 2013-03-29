@@ -97,7 +97,7 @@ With List Comprehensions
 
 
 Example: find average distance between points
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------------
 You have two lists of points (X-Y coordinates) which are pairs of start points
 and end points.  The first start point coresponds with the first end point, the
 second to the second, and so on.  You want to calculate the average distance
