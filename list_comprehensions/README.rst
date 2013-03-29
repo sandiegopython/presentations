@@ -23,10 +23,9 @@ Without List Comprehensions
     >>> print capitalized_lines
     ['Lorem ipsum\n', 'Dolor sit\n', '\n', 'Consectetur\n', 'Adipiscing\n']
 
+Alternately (using map):
 
- Alternately using map:
-
- .. code-block:: pycon
+.. code-block:: pycon
 
     >>> f = open("lorem.txt")
     >>> capitalized_lines = map(lambda x: x.capitalize(), f)
@@ -62,9 +61,9 @@ Without List Comprehensions
     ['lorem ipsum\n', 'dolor sit\n', 'consectetur\n', 'adipiscing\n']
 
 
- Alternately (using filter):
+Alternately (using filter):
 
- .. code-block:: pycon
+.. code-block:: pycon
 
     >>> f = open("lorem.txt")
     >>> non_whitespace_lines = filter(lambda x: x.strip(), f)
