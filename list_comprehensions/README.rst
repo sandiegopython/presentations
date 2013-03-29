@@ -23,7 +23,8 @@ Without List Comprehensions
     >>> print capitalized_lines
     ['Lorem ipsum dolor sit amet,\n', 'Consectetur adipiscing elit.\n', '\n', 'Donec a diam lectus.\n', 'Sed sit amet ipsum mauris.\n']
 
- Alternately (using map):
+
+ Alternately using map:
 
  .. code-block:: pycon
 
@@ -59,6 +60,7 @@ Without List Comprehensions
     ...
     >>> print non_whitespace_lines
     ['lorem ipsum dolor sit amet,\n', 'consectetur adipiscing elit.\n', 'donec a diam lectus.\n', 'sed sit amet ipsum mauris.\n']
+
 
  Alternately (using filter):
 
