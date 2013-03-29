@@ -1,3 +1,11 @@
+List Comprehensions
+===================
+
+These are list comprehension examples that were demoed during the San Diego
+Python Users Group on Mar 28, 2013.  A list of related topics and relevant
+links is included at the end of this file.
+
+
 Example: capitalizing lines in a file
 ---------------------------------------
 You have a list of lines from a file and you want to capitalize the first
@@ -139,3 +147,19 @@ With List Comprehensions
     >>> average_distance = sum(distances)/len(starts)
     >>> print average_distance
     4.01199289551
+
+
+References
+----------
+
+Below are links to resources referenced in the talk.
+
+- `Code Like a Pythonista: List comprehensions & Generator Expressions`_
+- `Expanding, Unpacking, or Splatting`_
+- `Look Like a Native`_
+- `Iterables, Iterators, and Generators: Part 1`_
+
+.. _Code Like a Pythonista: List comprehensions & Generator Expressions: http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html#list-comprehensions
+.. _Expanding, Unpacking, or Splatting: http://pynash.org/2013/03/13/unpacking.html
+.. _Look Like a Native: http://nedbatchelder.com/text/iter.html
+.. _Iterables, Iterators, and Generators\: Part 1: http://excess.org/article/2013/02/itergen1/
