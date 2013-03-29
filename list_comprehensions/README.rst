@@ -121,7 +121,6 @@ Without List Comprehensions
     4.01199289551
 
 Alternately:
-
 .. code-block:: pycon
 
     >>> from math import sqrt
@@ -145,6 +144,18 @@ With List Comprehensions
     >>> differences = [((u - x), (v - y)) for (u,v),(x,y) in zip(starts, ends)]
     >>> distances = [sqrt(x * x + y * y) for x,y in differences]
     >>> average_distance = sum(distances)/len(starts)
+    >>> print average_distance
+    4.01199289551
+
+Alternately:
+.. code-block:: pycon
+
+    >>> from math import sqrt
+    >>> starts = [(6, 4), (9, 7), (4, 7), (9, 9)]
+    >>> ends = [(8, 6), (9, 5), (2, 7), (3, 2)]
+    >>> distances = [sqrt((u - x) ** 2 + (v - y) ** 2)
+    ...             for (u, v), (x, y) in zip(starts, ends)]
+    >>> average_distance = sum(distances) / len(starts)
     >>> print average_distance
     4.01199289551
 
