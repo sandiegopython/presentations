@@ -21,7 +21,7 @@ Without List Comprehensions
     ...     capitalized_lines.append(line.capitalize())
     ...
     >>> print capitalized_lines
-    ['Lorem ipsum dolor sit amet,\n', 'Consectetur adipiscing elit.\n', '\n', 'Donec a diam lectus.\n', 'Sed sit amet ipsum mauris.\n']
+    ['Lorem ipsum\n', 'Dolor sit\n', '\n', 'Consectetur\n', 'Adipiscing\n']
 
 
  Alternately using map:
@@ -31,7 +31,7 @@ Without List Comprehensions
     >>> f = open("lorem.txt")
     >>> capitalized_lines = map(lambda x: x.capitalize(), f)
     >>> print capitalized_lines
-    ['Lorem ipsum dolor sit amet,\n', 'Consectetur adipiscing elit.\n', '\n', 'Donec a diam lectus.\n', 'Sed sit amet ipsum mauris.\n']
+    ['Lorem ipsum\n', 'Dolor sit\n', '\n', 'Consectetur\n', 'Adipiscing\n']
 
 With List Comprehensions
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -40,7 +40,7 @@ With List Comprehensions
     >>> f = open("lorem.txt")
     >>> capitalized_lines = [line.capitalize() for line in f]
     >>> print capitalized_lines
-    ['Lorem ipsum dolor sit amet,\n', 'Consectetur adipiscing elit.\n', '\n', 'Donec a diam lectus.\n', 'Sed sit amet ipsum mauris.\n']
+    ['Lorem ipsum\n', 'Dolor sit\n', '\n', 'Consectetur\n', 'Adipiscing\n']
 
 
 Example: filtering out empty lines
@@ -59,7 +59,7 @@ Without List Comprehensions
     ...         non_whitespace_lines.append(line)
     ...
     >>> print non_whitespace_lines
-    ['lorem ipsum dolor sit amet,\n', 'consectetur adipiscing elit.\n', 'donec a diam lectus.\n', 'sed sit amet ipsum mauris.\n']
+    ['lorem ipsum\n', 'dolor sit\n', 'consectetur\n', 'adipiscing\n']
 
 
  Alternately (using filter):
@@ -69,7 +69,7 @@ Without List Comprehensions
     >>> f = open("lorem.txt")
     >>> non_whitespace_lines = filter(lambda x: x.strip(), f)
     >>> print non_whitespace_lines
-    ['lorem ipsum dolor sit amet,\n', 'consectetur adipiscing elit.\n', 'donec a diam lectus.\n', 'sed sit amet ipsum mauris.\n']
+    ['lorem ipsum\n', 'dolor sit\n', 'consectetur\n', 'adipiscing\n']
 
 With List Comprehensions
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -78,7 +78,7 @@ With List Comprehensions
     >>> f = open("lorem.txt")
     >>> non_whitespace_lines = [line for line in f if line.strip()]
     >>> print non_whitespace_lines
-    ['lorem ipsum dolor sit amet,\n', 'consectetur adipiscing elit.\n', 'donec a diam lectus.\n', 'sed sit amet ipsum mauris.\n']
+    ['lorem ipsum\n', 'dolor sit\n', 'consectetur\n', 'adipiscing\n']
 
 
 Example: filtering a dictionary
