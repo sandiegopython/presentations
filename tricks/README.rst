@@ -23,9 +23,10 @@ Chained Comparisons
 Comparison operations can be chained in Python.  This means the following are equivalent::
 
     if x < y and y < z:
-        print "{0} < {1} < {2}".format(x, y, z)
+        print "{} < {} < {}".format(x, y, z)
+
     if x < y < z:
-        print "{0} < {1} < {2}".format(x, y, z)
+        print "{} < {} < {}".format(x, y, z)
 
 Less Repetition
 ~~~~~~~~~~~~~~~
@@ -34,13 +35,15 @@ Just compare the following::
 
     if h == i and i == j and j == k:
         print "h, i, j, and k are equivalent"
+
     if h == i == j == k:
         print "h, i, j, and k are equivalent"
 
 Less Temporary Variables
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Sometimes expressions are used in comparisons.  Evaluating an expression twice can be inefficient or may lead to invalid results.
+Sometimes expressions are used in comparisons.  Evaluating an expression twice
+can be inefficient or may lead to invalid results.
 
 With a temporary variable to store the current time::
 
@@ -68,19 +71,28 @@ Automatic Tuple Unpacking
 Tuple Review
 ~~~~~~~~~~~~
 
-`Tuples`_ are immutable iterable objects (like lists but they can't be modified).
+`Tuples`_ are immutable iterable objects (like lists that can't be modified).
 
-Tuples can be created by separating values by commas and optionally surrounding them by parenthesis.  Examples::
+You can create a tuple by separating values by commas and surrounding them by parenthesis.  Examples::
 
-    >>> a_tuple = 1, 2, 3
-    >>> a_tuple
+    >>> example_tuple = (1, 2, 3)
+    >>> example_tuple
     (1, 2, 3)
 
-Empty tuples can be created by an empty pair of parenthesis.  A single-element tuple must have a trailing comma.  Examples::
+You can usually leave off the parenthesis::
+
+    >>> example_tuple = 1, 2, 3
+    >>> example_tuple
+    (1, 2, 3)
+
+An empty pair of parenthesis creates an empty tuple::
 
     >>> empty_tuple = ()
     >>> empty_tuple
     ()
+
+A single-element tuple must have a trailing comma.  Examples::
+
     >>> single_element_tuple = 1,
     >>> single_element_tuple
     (1,)
@@ -88,67 +100,76 @@ Empty tuples can be created by an empty pair of parenthesis.  A single-element t
 Unpacking Iterables
 ~~~~~~~~~~~~~~~~~~~
 
-Tuples, lists, strings, and dicts are all iterables.  All iterables can be automatically unpacked allowing for "multiple assignment".  Here's two examples of multiple assignment::
+Tuples, lists, strings, and dictionary are all iterables.
 
-    >>> a, b, c = a_tuple
-    >>> print "{0} + {1} = {2}".format(a, b, c)
+Python supports "multiple assignment" by unpacking iterables.
+
+A basic example of multiple assignment::
+
+    >>> a, b, c = example_tuple
+    >>> print "{} + {} = {}".format(a, b, c)
     1 + 2 = 3
-    >>>
-    >>> for x, y in [(1, 2), (3, 4), (5, 6)]:
-    ...     print "{0} < {1}".format(x, y)
+
+A more complex example using deeper unpacking::
+
+    >>> for (i, (x, y, z)) in enumerate(locations):
+    ...     print "p{}: {}, {}, {}".format(i, x, y, z)
     ...
-    1 < 2
-    3 < 4
-    5 < 6
+    p0: 1, 2, 3
+    p1: 3, 4, 5
+    p2: 5, 6, 7
 
 Swapping Variables
 ~~~~~~~~~~~~~~~~~~
 
-Multiple assignment can be used to swap two variables in a single line of code.
+Combining tuple packing with iterable unpacking allows for multiple assignment::
 
-Traditional way to swap ``x`` and ``y``::
+    >>> x, y, z = 1, 2, 3
+
+Multiple assignment can be used to swap two variables in a single line of code::
+
+    >>> x, y = y, x
+
+Without multiple assignment we would need a temporary variable to swap values::
 
     >>> t = x  # hold old value of x in a temporary variable
     >>> x = y
     >>> y = t
 
-Pythonic way using multiple assignment::
-
-    >>> x, y = y, x
-
 
 Inline if statements
 --------------------
 
-Many languages support a `terenary operator`_ (a.k.a. conditional operator, inline if).  Terenary operators are useful for replacing very simple if statements, often making them easier to read.
+Many languages support a `ternary operator`_ (a.k.a. conditional operator).  Ternary operators are useful for replacing very simple if statements, often making them easier to read.
 
 Traditional Examples
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
-A simple if statement in a C-like language::
+A simple if statement in JavaScript::
 
+    var x;
     if (something()) {
         x = "something";
     } else {
         x = "nothing";
     }
 
-Equivalent code abusing short circuit boolean operator logic
+Equivalent code abusing short circuit boolean operator logic::
 
-    x = something() && "something" || "nothing";
+    var x = something() && "something" || "nothing";
 
 Equivalent code written using a traditional ternary operator::
 
-    x = something() ? "something" : "nothing";
+    var x = something() ? "something" : "nothing";
 
-That ?: operator is in C, Perl, Ruby, JavaScript and many other languages.
+That ``?:`` operator is present in C, Perl, Ruby, JavaScript and many other languages.
 
 Python's Inline If
 ~~~~~~~~~~~~~~~~~~
 
-Python's supports inline if statements which work very similarly to the ternary operator.
+Python supports inline if statements which work very similarly to the ternary operator.
 
-This is more wordy than it needs to be::
+Here's a simple if statement in Python::
 
     if something():
         x = "something"
@@ -157,7 +178,7 @@ This is more wordy than it needs to be::
 
 Equivalent code abusing short circuit boolean operator logic::
 
-    x = something() and "something" or "nothing"  # Please DON'T do this
+    x = something() and "something" or "nothing"  # Please don't do this
 
 Equivalent code written using an inline if statement::
 
