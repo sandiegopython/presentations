@@ -20,7 +20,9 @@ This talk was heavily inspired by Max Burstein's article
 Chained Comparisons
 -------------------
 
-Comparison operations can be chained in Python.  This means the following are equivalent::
+Comparison operations can be chained in Python.  This means the following are equivalent:
+
+.. code-block:: python
 
     if x < y and y < z:
         print "{} < {} < {}".format(x, y, z)
@@ -31,7 +33,9 @@ Comparison operations can be chained in Python.  This means the following are eq
 Less Repetition
 ~~~~~~~~~~~~~~~
 
-Just compare the following::
+Just compare the following:
+
+.. code-block:: python
 
     if h == i and i == j and j == k:
         print "h, i, j, and k are equivalent"
@@ -45,7 +49,9 @@ Less Temporary Variables
 Sometimes expressions are used in comparisons.  Evaluating an expression twice
 can be inefficient or may lead to invalid results.
 
-With a temporary variable to store the current time::
+With a temporary variable to store the current time:
+
+.. code-block:: pycon
 
     >>> from datetime import time, datetime
     >>>
@@ -55,7 +61,9 @@ With a temporary variable to store the current time::
     ...
     It's between 8am and 5pm!
 
-Without the need for a temporary variable::
+Without the need for a temporary variable:
+
+.. code-block:: pycon
 
     >>> from datetime import time, datetime
     >>>
@@ -73,25 +81,33 @@ Tuple Review
 
 `Tuples`_ are immutable iterable objects (like lists that can't be modified).
 
-You can create a tuple by separating values by commas and surrounding them by parenthesis.  Examples::
+You can create a tuple by separating values by commas and surrounding them by parenthesis.  Examples:
+
+.. code-block:: pycon
 
     >>> example_tuple = (1, 2, 3)
     >>> example_tuple
     (1, 2, 3)
 
-You can usually leave off the parenthesis::
+You can usually leave off the parenthesis:
+
+.. code-block:: pycon
 
     >>> example_tuple = 1, 2, 3
     >>> example_tuple
     (1, 2, 3)
 
-An empty pair of parenthesis creates an empty tuple::
+An empty pair of parenthesis creates an empty tuple:
+
+.. code-block:: pycon
 
     >>> empty_tuple = ()
     >>> empty_tuple
     ()
 
-A single-element tuple must have a trailing comma.  Examples::
+A single-element tuple must have a trailing comma.  Examples:
+
+.. code-block:: pycon
 
     >>> single_element_tuple = 1,
     >>> single_element_tuple
@@ -104,13 +120,17 @@ Tuples, lists, strings, and dictionary are all iterables.
 
 Python supports "multiple assignment" by unpacking iterables.
 
-A basic example of multiple assignment::
+A basic example of multiple assignment:
+
+.. code-block:: pycon
 
     >>> a, b, c = example_tuple
     >>> print "{} + {} = {}".format(a, b, c)
     1 + 2 = 3
 
-A more complex example using deeper unpacking::
+A more complex example using deeper unpacking:
+
+.. code-block:: pycon
 
     >>> for (i, (x, y, z)) in enumerate(locations):
     ...     print "p{}: {}, {}, {}".format(i, x, y, z)
@@ -122,15 +142,21 @@ A more complex example using deeper unpacking::
 Swapping Variables
 ~~~~~~~~~~~~~~~~~~
 
-Combining tuple packing with iterable unpacking allows for multiple assignment::
+Combining tuple packing with iterable unpacking allows for multiple assignment:
+
+.. code-block:: pycon
 
     >>> x, y, z = 1, 2, 3
 
-Multiple assignment can be used to swap two variables in a single line of code::
+Multiple assignment can be used to swap two variables in a single line of code:
+
+.. code-block:: pycon
 
     >>> x, y = y, x
 
-Without multiple assignment we would need a temporary variable to swap values::
+Without multiple assignment we would need a temporary variable to swap values:
+
+.. code-block:: pycon
 
     >>> t = x  # hold old value of x in a temporary variable
     >>> x = y
@@ -145,7 +171,9 @@ Many languages support a `ternary operator`_ (a.k.a. conditional operator).  Ter
 Traditional Examples
 ~~~~~~~~~~~~~~~~~~~~
 
-A simple if statement in JavaScript::
+A simple if statement in JavaScript:
+
+.. code-block:: javascript
 
     var age = 20;
     var ticketType;
@@ -155,11 +183,15 @@ A simple if statement in JavaScript::
         ticketType = "adult";
     }
 
-Equivalent code abusing short circuit boolean operator logic::
+Equivalent code abusing short circuit boolean operator logic:
+
+.. code-block:: javascript
 
     var ticketType = age < 18 && "child" || "adult";
 
-Equivalent code written using a traditional ternary operator::
+Equivalent code written using a traditional ternary operator:
+
+.. code-block:: javascript
 
     var ticketType = age < 18 ? "child" : "adult";
 
@@ -170,7 +202,9 @@ Python's Inline If
 
 Python supports inline if statements which work very similarly to the ternary operator.
 
-Here's a simple if statement in Python::
+Here's a simple if statement in Python:
+
+.. code-block:: python
 
     age = 20
     if age < 18:
@@ -178,11 +212,15 @@ Here's a simple if statement in Python::
     else:
         ticket_type = "adult"
 
-Equivalent code abusing short circuit boolean operator logic::
+Equivalent code abusing short circuit boolean operator logic:
+
+.. code-block:: python
 
     ticket_type = age < 18 and "child" or "adult"  # Please don't do this
 
-Equivalent code written using an inline if statement::
+Equivalent code written using an inline if statement:
+
+.. code-block:: python
 
     ticket_type = "child" if age < 18 else "adult"
 
