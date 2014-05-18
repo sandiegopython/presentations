@@ -147,20 +147,21 @@ Traditional Examples
 
 A simple if statement in JavaScript::
 
-    var x;
-    if (something()) {
-        x = "something";
+    var age = 20;
+    var ticketType;
+    if (age < 18) {
+        ticketType = "child";
     } else {
-        x = "nothing";
+        ticketType = "adult";
     }
 
 Equivalent code abusing short circuit boolean operator logic::
 
-    var x = something() && "something" || "nothing";
+    var ticketType = age < 18 && "child" || "adult";
 
 Equivalent code written using a traditional ternary operator::
 
-    var x = something() ? "something" : "nothing";
+    var ticketType = age < 18 ? "child" : "adult";
 
 That ``?:`` operator is present in C, Perl, Ruby, JavaScript and many other languages.
 
@@ -171,19 +172,19 @@ Python supports inline if statements which work very similarly to the ternary op
 
 Here's a simple if statement in Python::
 
-    if something():
-        x = "something"
+    age = 20
+    if age < 18:
+        ticket_type = "child"
     else:
-        x = "nothing"
+        ticket_type = "adult"
 
 Equivalent code abusing short circuit boolean operator logic::
 
-    x = something() and "something" or "nothing"  # Please don't do this
+    ticket_type = age < 18 and "child" or "adult"  # Please don't do this
 
 Equivalent code written using an inline if statement::
 
-    x = "something" if something() else "nothing"
-
+    ticket_type = "child" if age < 18 else "adult"
 
 
 .. _Python Shortcuts for the Python Beginner: http://maxburstein.com/blog/python-shortcuts-for-the-python-beginner/
