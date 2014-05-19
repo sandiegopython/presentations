@@ -46,7 +46,7 @@ Less Temporary Variables
 Sometimes expressions are used in comparisons.  Evaluating an expression twice
 can be inefficient or may lead to invalid results.
 
-With a temporary variable to store the current time:
+One way to compare against the current time is
 
 .. code-block:: pycon
 
@@ -85,6 +85,8 @@ You can create a tuple by separating values by commas and surrounding them by pa
     >>> example_tuple = (1, 2, 3)
     >>> example_tuple
     (1, 2, 3)
+
+Tuple creation is sometimes called "tuple packing".
 
 You can usually leave off the parenthesis:
 
