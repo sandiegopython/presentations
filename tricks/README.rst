@@ -78,7 +78,7 @@ Tuple Review
 
 `Tuples`_ are immutable sequence objects (like lists that can't be modified).
 
-You can create a tuple by separating values by commas and surrounding them by parenthesis.  Examples:
+You can create a tuple by separating values by commas and surrounding them by parenthesis.  Example:
 
 .. code-block:: pycon
 
@@ -104,7 +104,7 @@ An empty pair of parenthesis creates an empty tuple:
     >>> empty_tuple
     ()
 
-A single-element tuple must have a trailing comma.  Examples:
+A single-element tuple must have a trailing comma.  Example:
 
 .. code-block:: pycon
 
