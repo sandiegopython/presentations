@@ -20,12 +20,18 @@ This talk was heavily inspired by Max Burstein's article
 Chained Comparisons
 -------------------
 
-Comparison operations can be chained in Python.  This means the following are equivalent:
+Comparison operations can be chained in Python.
+
+A traditional comparison between three variables:
 
 .. code-block:: python
 
     if x < y and y < z:
         print "{} < {} < {}".format(x, y, z)
+
+A chained comparison between three variables:
+
+.. code-block:: python
 
     if x < y < z:
         print "{} < {} < {}".format(x, y, z)
