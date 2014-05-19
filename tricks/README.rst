@@ -225,9 +225,35 @@ Equivalent code written using an inline if statement:
 References
 ----------
 
-* `Python Shortcuts for the Python Beginner`_ (which inspired this talk)
+This talk was inspired by `Python Shortcuts for the Python Beginner`_ by Max Burstein.
 
+Chained Comparisons:
 
-.. _Python Shortcuts for the Python Beginner: http://maxburstein.com/blog/python-shortcuts-for-the-python-beginner/
-.. _tuples: http://docs.python.org/2/library/functions.html#tuple
+* `Comparisons`_ (Python Documentation)
+* `Is this chained comparison readable?`_
+* `Python comparison operators chaining`_
+
+Tuples:
+
+* `Tuples and Sequences`_ (Python Documentation)
+* `Packing and Unpacking Tuples for Identifier Switching`_
+* `PEP 3113: Removal of Tuple Parameter Unpacking`_
+
+Inline If:
+
+* `Conditional Expressions`_ (Python Documentation)
+* `Python 101: The Ternary Operator`_
+* `I'm annoyed with Python's ternary operator`_
+
+.. _comparisons: https://docs.python.org/3/reference/expressions.html#not-in
+.. _i'm annoyed with python's ternary operator: http://pythontesting.net/python/annoyed-ternary-operator/
+.. _is this chained comparison readable?: http://codereview.stackexchange.com/questions/28456/is-this-chained-comparison-readable
+.. _packing and unpacking tuples for identifier switching: http://markcharyk.com/post/78449356329/packing-and-unpacking-tuples-for-identifier
+.. _pep 3113\: removal of tuple parameter unpacking: http://legacy.python.org/dev/peps/pep-3113/
+.. _python 101\: the ternary operator: http://www.blog.pythonlibrary.org/2012/08/29/python-101-the-ternary-operator/
+.. _python comparison operators chaining: http://blog.stirbu.name/2013/07/python-comparison-operators-chaining/
+.. _python shortcuts for the python beginner: http://maxburstein.com/blog/python-shortcuts-for-the-python-beginner/
 .. _ternary operator: https://en.wikipedia.org/wiki/%3F:
+.. _tuples and sequences: https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences
+.. _tuples: http://docs.python.org/3/library/functions.html#tuple
+.. _conditional expressions: https://docs.python.org/3/reference/expressions.html?highlight=conditional%20expression#conditional-expressions
