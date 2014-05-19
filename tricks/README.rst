@@ -18,14 +18,14 @@ A traditional comparison between three variables:
 .. code-block:: python
 
     if x < y and y < z:
-        print "{} < {} < {}".format(x, y, z)
+        print("{} < {} < {}".format(x, y, z))
 
 A chained comparison between three variables:
 
 .. code-block:: python
 
     if x < y < z:
-        print "{} < {} < {}".format(x, y, z)
+        print("{} < {} < {}".format(x, y, z))
 
 Less Repetition
 ~~~~~~~~~~~~~~~
@@ -35,10 +35,10 @@ Just compare the following:
 .. code-block:: python
 
     if h == i and i == j and j == k:
-        print "h, i, j, and k are equivalent"
+        print("h, i, j, and k are equivalent")
 
     if h == i == j == k:
-        print "h, i, j, and k are equivalent"
+        print("h, i, j, and k are equivalent")
 
 Less Temporary Variables
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -54,7 +54,7 @@ One way to compare against the current time is
     >>>
     >>> now = datetime.now().time()
     >>> if time(8, 0) < now and now < time(17, 0):
-    ...     print "It's between 8am and 5pm!"
+    ...     print("It's between 8am and 5pm!")
     ...
     It's between 8am and 5pm!
 
@@ -65,7 +65,7 @@ Without the need for a temporary variable:
     >>> from datetime import time, datetime
     >>>
     >>> if time(8, 0) < datetime.now().time() < time(17, 0):
-    ...     print "It's between 8am and 5pm!"
+    ...     print("It's between 8am and 5pm!")
     ...
     It's between 8am and 5pm!
 
@@ -124,7 +124,7 @@ A basic example of multiple assignment:
 .. code-block:: pycon
 
     >>> a, b, c = example_tuple
-    >>> print "{} + {} = {}".format(a, b, c)
+    >>> print("{} + {} = {}".format(a, b, c))
     1 + 2 = 3
 
 A more complex example using deeper unpacking:
@@ -132,7 +132,7 @@ A more complex example using deeper unpacking:
 .. code-block:: pycon
 
     >>> for (i, (x, y, z)) in enumerate(locations):
-    ...     print "p{}: {}, {}, {}".format(i, x, y, z)
+    ...     print("p{}: {}, {}, {}".format(i, x, y, z))
     ...
     p0: 1, 2, 3
     p1: 3, 4, 5
