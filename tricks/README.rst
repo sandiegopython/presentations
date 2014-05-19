@@ -1,20 +1,11 @@
 Python Tricks
 =============
 
-This talk is about interesting Python syntactic sugar and built-in functions.
+We're going to review 3 syntactic tricks that are unique to Python:
 
-Most of these features:
-
-1. Aren't taught in introductory tutorials
-2. Use syntax that is different than some similar languages
-3. Sometimes make code easier to understand
-
-
-Inspiration
------------
-
-This talk was heavily inspired by Max Burstein's article
-`Python Shortcuts for the Python Beginner`_.
+1. Chained Comparisons
+2. Packing and Unpacking Tuples
+3. Inline If Statements
 
 
 Chained Comparisons
@@ -79,13 +70,13 @@ Without the need for a temporary variable:
     It's between 8am and 5pm!
 
 
-Automatic Tuple Unpacking
--------------------------
+Packing and Unpacking Tuples
+----------------------------
 
 Tuple Review
 ~~~~~~~~~~~~
 
-`Tuples`_ are immutable iterable objects (like lists that can't be modified).
+`Tuples`_ are immutable sequence objects (like lists that can't be modified).
 
 You can create a tuple by separating values by commas and surrounding them by parenthesis.  Examples:
 
@@ -119,12 +110,12 @@ A single-element tuple must have a trailing comma.  Examples:
     >>> single_element_tuple
     (1,)
 
-Unpacking Iterables
+Unpacking Sequences
 ~~~~~~~~~~~~~~~~~~~
 
-Tuples, lists, strings, and dictionary are all iterables.
+Tuples, lists, strings, and dictionary are all sequences.
 
-Python supports "multiple assignment" by unpacking iterables.
+Python supports "multiple assignment" by unpacking sequences.
 
 A basic example of multiple assignment:
 
@@ -148,7 +139,7 @@ A more complex example using deeper unpacking:
 Swapping Variables
 ~~~~~~~~~~~~~~~~~~
 
-Combining tuple packing with iterable unpacking allows for multiple assignment:
+Combining tuple packing with sequence unpacking allows for multiple assignment:
 
 .. code-block:: pycon
 
@@ -229,6 +220,12 @@ Equivalent code written using an inline if statement:
 .. code-block:: python
 
     ticket_type = "child" if age < 18 else "adult"
+
+
+References
+----------
+
+* `Python Shortcuts for the Python Beginner`_ (which inspired this talk)
 
 
 .. _Python Shortcuts for the Python Beginner: http://maxburstein.com/blog/python-shortcuts-for-the-python-beginner/
