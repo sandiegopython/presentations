@@ -1,6 +1,8 @@
 Python __magic__ variables
 ==========================
 
+By Trey Hunner
+
 Magic variables are special variables used for controlling and/or revealing
 some internal Python behavior These variables are user-definable (they're not
 reserved words) and their names start and end with two underscores by

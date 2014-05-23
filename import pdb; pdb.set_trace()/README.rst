@@ -1,6 +1,8 @@
 import pdb ; pdb.set_trace()
 ============================
 
+By Trey Hunner
+
 The file ``pdb_demo.py`` is an interactive demonstration of pdb usage.  The
 demo will teach you how to use some of the pdb commands shown below.  To try
 out this demo run it in your Python interpreter::

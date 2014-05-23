@@ -1,6 +1,8 @@
 List Comprehensions
 ===================
 
+By Trey Hunner
+
 These are list comprehension examples that were demoed during the San Diego
 Python Users Group on Mar 28, 2013.  A list of related topics and relevant
 links is included at the end of this file.

@@ -1,6 +1,8 @@
 Python Tricks
 =============
 
+By Trey Hunner
+
 Files
 -----
 
