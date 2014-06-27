@@ -66,7 +66,11 @@ You can check out the implementation in the ``iopatch`` module.
 Mock
 ----
 
-Mock is a cool tool that can help you monkey patch things.
+`Mock`_ is a cool tool that can help you monkey patch things.
+
+When writing a test for our ``day_of_week`` function, we probably want to make sure it always returns the correct date in a variety of situations (not just for today's date).
+
+Let's force the ``today`` method on the ``date`` class in our ``utils`` module to return June 22, 2014 all the time.
 
 .. code-block:: pycon
 
@@ -77,8 +81,8 @@ Mock is a cool tool that can help you monkey patch things.
     >>>
     >>> with patch('utils.date') as fake_date:
     ...     fake_date.today.return_value = date(2014, 6, 22)
-    ...     print day_of_week()
+    ...     print day_of_week()  # Should print Sunday
     ...
     Sunday
-    >>> print day_of_week()
+    >>> print day_of_week()  # Should print today's day of week
     Thursday
