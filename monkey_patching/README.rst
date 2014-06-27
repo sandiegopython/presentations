@@ -1,6 +1,8 @@
 Introduction to Monkey Patching
 ===============================
 
+By Trey Hunner
+
 Monkey patching: modifying or extending code at runtime
 
 Let's walk through some examples.
