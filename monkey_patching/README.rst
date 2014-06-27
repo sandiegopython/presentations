@@ -61,3 +61,24 @@ Let's make a context manager to capture standard output and save it to a file!
     >>>
 
 You can check out the implementation in the ``iopatch`` module.
+
+
+Mock
+----
+
+Mock is a cool tool that can help you monkey patch things.
+
+.. code-block:: pycon
+
+    >>> from mock import patch
+    >>> from datetime import date
+    >>>
+    >>> from utils import day_of_week
+    >>>
+    >>> with patch('utils.date') as fake_date:
+    ...     fake_date.today.return_value = date(2014, 6, 22)
+    ...     print day_of_week()
+    ...
+    Sunday
+    >>> print day_of_week()
+    Thursday
