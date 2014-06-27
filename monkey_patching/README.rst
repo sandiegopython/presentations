@@ -86,3 +86,9 @@ Let's force the ``today`` method on the ``date`` class in our ``utils`` module t
     Sunday
     >>> print day_of_week()  # Should print today's day of week
     Thursday
+
+
+Warning!
+--------
+
+Changing code at runtime may be dangerous.  Monkey patching can sometimes help a lot while testing, but use it in production code only with extreme caution.
