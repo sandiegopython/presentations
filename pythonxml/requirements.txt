@@ -1,0 +1,5 @@
+beautifulsoup4==4.3.2
+defusedxml==0.4.1
+ipython==2.1.0
+lxml==3.3.5
+requests==2.3.0
