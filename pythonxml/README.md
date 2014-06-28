@@ -25,4 +25,6 @@ It can be run interactively like so:
 
 ## License
 
-Public Domain. No rights reserved.
+[CC0][cc0] Public Domain Dedication
+
+[cc0]: http://creativecommons.org/publicdomain/zero/1.0
