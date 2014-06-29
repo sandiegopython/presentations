@@ -1,5 +1,5 @@
-PEP465 - matrix multiplication
-==============================
+Python Enhancement Proposal 465 - matrix multiplication
+=======================================================
 
 This was a talk on [PEP465][pep465], a new matrix multiplication operator,
 given by Jaime Fernández at San Diego Python on June 26, 2014.
