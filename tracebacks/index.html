@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Reading Python Tracebacks &mdash; Reading Python Tracebacks 2014.07.24 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/styles.css" type="text/css" />
+    <link rel="stylesheet" href="_static/single.css" type="text/css" />
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2014.07.24',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/common.js"></script>
+    
+    <script type="text/javascript" src="_static/slides.js"></script>
+    <script type="text/javascript" src="_static/sync.js"></script>
+    <script type="text/javascript" src="_static/controller.js"></script>
+    <script type="text/javascript" src="_static/init.js"></script>
+    
+    
+    <link rel="top" title="Reading Python Tracebacks 2014.07.24 documentation" href="#" /> 
+  </head>
+  <body>
+
+<section
+   id="slide_container"
+   class='slides layout-regular'>
+
+
+  
+<article class="slide level-1" id="reading-python-tracebacks">
+
+<h1>Reading Python Tracebacks</h1>
+
+<p>By Trey Hunner</p>
+
+
+
+
+</article>
+<article class="slide level-2" id="say-we-have-some-code">
+
+<h2>Say we have some code</h2>
+
+<p>It's a command-line tool for generating random names:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>names
+Jack Hill
+<span class="nv">$ </span>names
+Robert Zwilling
+<span class="nv">$ </span>names
+Mignon Gulke
+<span class="nv">$ </span>names
+Donna Walton
+<span class="nv">$ </span>names
+Elena Cameron
+</pre></div>
+</div>
+
+
+
+
+</article>
+<article class="slide level-2" id="and-it-s-broken">
+
+<h2>And it's broken</h2>
+
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>names
+Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+File <span class="s2">&quot;/home/trey/.virtualenvs/names/bin/names&quot;</span>, line 9, in &lt;module&gt;
+    load_entry_point<span class="o">(</span><span class="s1">&#39;names==0.3.0.post1&#39;</span>, <span class="s1">&#39;console_scripts&#39;</span>, <span class="s1">&#39;names&#39;</span><span class="o">)()</span>
+File <span class="s2">&quot;/home/trey/repos/python/names/names/main.py&quot;</span>, line 6, in main
+    print<span class="o">(</span>get_full_name<span class="o">())</span>
+File <span class="s2">&quot;/home/trey/repos/python/names/names/__init__.py&quot;</span>, line 43, in get_full_name
+    <span class="k">return</span> <span class="s2">&quot;{0} {1}&quot;</span>.format<span class="o">(</span>get_first_name<span class="o">(</span>gender<span class="o">)</span>, get_last_name<span class="o">())</span>
+File <span class="s2">&quot;/home/trey/repos/python/names/names/__init__.py&quot;</span>, line 35, in get_first_name
+    <span class="k">return </span>get_name<span class="o">(</span>FILES<span class="o">[</span><span class="s1">&#39;first:%s&#39;</span> % gender<span class="o">])</span>.capitalize<span class="o">()</span>
+File <span class="s2">&quot;/home/trey/repos/python/names/names/__init__.py&quot;</span>, line 23, in get_name
+    <span class="nv">selected</span> <span class="o">=</span> random<span class="o">()</span> * 90
+TypeError: <span class="s1">&#39;module&#39;</span> object is not callable
+</pre></div>
+</div>
+<p class="build">Now we need to learn about tracebacks.</p>
+
+
+
+
+</article>
+<article class="slide level-2" id="read-from-the-bottom-up">
+
+<h2>Read from the bottom-up</h2>
+
+<p>The last line in the traceback is the most important.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>names
+...
+TypeError: <span class="s1">&#39;module&#39;</span> object is not callable
+</pre></div>
+</div>
+<p>This last line is in the format:</p>
+<div class="highlight-python"><div class="highlight"><pre>ExceptionClass: a descriptive message that might be helpful
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The last line tells us the exception that was raised and any message included with the exception that might give us a hint as to what went wrong.</p>
+<p class="last">This line tells us the exception class that was raised and often gives us a message with specifics about the error that occurred.</p>
+</div>
+
+
+
+
+</article>
+<article class="slide level-2" id="call-stack">
+
+<h2>Call Stack</h2>
+
+<p>All the other lines in the traceback represent the call stack.</p>
+<p>The call stack works like this:</p>
+<ul class="simple">
+<li>When entering a function: push a frame onto the stack</li>
+<li>When exiting a function: pop a frame off of the stack</li>
+<li>Each frame records the currently executing code</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To understand the rest of the traceback, we need to understand the call stack.  Here's a quick explanation.</p>
+</div>
+
+
+
+
+</article>
+<article class="slide level-2" id="a-visual-demonstration">
+
+<h2>A Visual Demonstration</h2>
+
+<div class="figure">
+<img alt="_images/call_stack.png" src="_images/call_stack.png" />
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The process of building up the stack requires us to trace through our code in the same way the Python runtime would.</p>
+</div>
+
+
+
+
+</article>
+<article class="slide level-2" id="most-recent-call-last">
+
+<h2>Most Recent Call Last</h2>
+
+<p>Let's look at the first line in our traceback:</p>
+<div class="highlight-python"><div class="highlight"><pre>Traceback (most recent call last):
+</pre></div>
+</div>
+<p>This means the last line of the traceback represents the most recent stack frame in our call stack (the function we're in right now).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Basically this means we should read the stack trace from the bottom-up also.</p>
+</div>
+
+
+
+
+</article>
+<article class="slide level-2" id="reading-the-call-stack">
+
+<h2>Reading the call stack</h2>
+
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>names
+Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+File <span class="s2">&quot;/home/trey/.virtualenvs/names/bin/names&quot;</span>, line 9, in &lt;module&gt;
+    load_entry_point<span class="o">(</span><span class="s1">&#39;names==0.3.0.post1&#39;</span>, <span class="s1">&#39;console_scripts&#39;</span>, <span class="s1">&#39;names&#39;</span><span class="o">)()</span>
+File <span class="s2">&quot;/home/trey/repos/python/names/names/main.py&quot;</span>, line 6, in main
+    print<span class="o">(</span>get_full_name<span class="o">())</span>
+File <span class="s2">&quot;/home/trey/repos/python/names/names/__init__.py&quot;</span>, line 43, in get_full_name
+    <span class="k">return</span> <span class="s2">&quot;{0} {1}&quot;</span>.format<span class="o">(</span>get_first_name<span class="o">(</span>gender<span class="o">)</span>, get_last_name<span class="o">())</span>
+File <span class="s2">&quot;/home/trey/repos/python/names/names/__init__.py&quot;</span>, line 35, in get_first_name
+    <span class="k">return </span>get_name<span class="o">(</span>FILES<span class="o">[</span><span class="s1">&#39;first:%s&#39;</span> % gender<span class="o">])</span>.capitalize<span class="o">()</span>
+File <span class="s2">&quot;/home/trey/repos/python/names/names/__init__.py&quot;</span>, line 23, in get_name
+    <span class="nv">selected</span> <span class="o">=</span> random<span class="o">()</span> * 90
+TypeError: <span class="s1">&#39;module&#39;</span> object is not callable
+</pre></div>
+</div>
+<p>Let's translate this into English</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>In english:</p>
+<ol class="arabic simple">
+<li>Our exception is <tt class="docutils literal"><span class="pre">TypeError</span></tt> and the error was <tt class="docutils literal"><span class="pre">'module'</span> <span class="pre">object</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">callable</span></tt></li>
+<li>We're currently in the <tt class="docutils literal"><span class="pre">get_name</span></tt> function in our <tt class="docutils literal"><span class="pre">names/__init__.py</span></tt> module on <strong>line 23</strong></li>
+<li>The function that called <tt class="docutils literal"><span class="pre">get_name</span></tt> was <tt class="docutils literal"><span class="pre">get_first_name</span></tt> in the same module on <strong>line 35</strong></li>
+<li>That was called from <tt class="docutils literal"><span class="pre">get_full_name</span></tt> on <strong>line 43</strong></li>
+<li>That was called from <tt class="docutils literal"><span class="pre">main</span></tt> on <strong>line 6</strong></li>
+<li>That was called from some <tt class="docutils literal"><span class="pre">bin/names</span></tt> file in our virtualenv directory on <strong>line 9</strong></li>
+</ol>
+<p class="last">So the second-to-last lines in the traceback looks like it's probably where our problem lies.  That's line 23 on our __init__.py file.</p>
+</div>
+
+
+
+
+</article>
+<article class="slide level-2" id="identifying-the-problem">
+
+<h2>Identifying the Problem</h2>
+
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">abspath</span><span class="p">,</span> <span class="n">join</span><span class="p">,</span> <span class="n">dirname</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c"># ...</span>
+
+<span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">selected</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">90</span>  <span class="c"># Here&#39;s the problem line</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">name_file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">name_file</span><span class="p">:</span>
+            <span class="n">name</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">cummulative</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">cummulative</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">selected</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">name</span>
+    <span class="k">return</span> <span class="s">&quot;&quot;</span>
+</pre></div>
+</div>
+<p>It looks like we're called the <tt class="docutils literal"><span class="pre">random</span></tt> module instead of the <tt class="docutils literal"><span class="pre">random.random</span></tt> function.</p>
+
+
+
+
+</article>
+<article class="slide level-2" id="solving-the-problem">
+
+<h2>Solving the Problem</h2>
+
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">abspath</span><span class="p">,</span> <span class="n">join</span><span class="p">,</span> <span class="n">dirname</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c"># ...</span>
+
+<span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">selected</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">90</span>  <span class="c"># We fixed it</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">name_file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">name_file</span><span class="p">:</span>
+            <span class="n">name</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">cummulative</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">cummulative</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">selected</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">name</span>
+    <span class="k">return</span> <span class="s">&quot;&quot;</span>
+</pre></div>
+</div>
+
+
+
+
+</article>
+<article class="slide level-2" id="in-summary">
+
+<h2>In Summary</h2>
+
+<ul class="simple">
+<li>The last line of the traceback tells the exception that was raised</li>
+<li>The rest of the lines in our traceback show us the current state of our call stack</li>
+<li>In general, the last couple lines of the traceback are the most important</li>
+<li><strong>Read tracebacks from the bottom-up</strong></li>
+</ul>
+
+
+
+
+</article>
+
+</section>
+
+<section id="slide_notes">
+
+</section>
+
+  </body>
+</html>
