@@ -22,7 +22,7 @@ Configure Raven
 
 http://raven.readthedocs.org/en/latest/config/django.html
 
-- or -
+\- or -
 
 http://raven.readthedocs.org/en/latest/config/logging.html
 
