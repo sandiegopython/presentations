@@ -370,12 +370,62 @@ Smarter: Different S3 buckets AND different signing keys
   sound freaking amazing. I don't trust my tests that much.
 
 
+
+TEST YOUR STUFF ON DEV
+======================
+
+.. rst-class:: build
+
+* "Doing it live" these are not words to live by.
+* Bad things will happen to your systems
+* probably not the first time
+* or the second
+
+
 .. rst-class:: centered-things
 
-And after all that
-==================
+But one day your deployment will do this
+========================================
+
+.. figure:: /_static/bad_deployment.gif
+
+  http://media.tumblr.com/8be7468534d182692141c44fdcc708ca/tumblr_inline_mw67p0IfnW1raprkq.gif
+
+.. note::
+  And you will be very sad if you "did it live."
+
+
+Hitting the deploy button
+=========================
+* Shouldn't be scary
+* A Developer should know what's going to happen
+
+  * or at least be able to figure out what's going to happen
+
+* A Operations person shouldn't be standing over you with fear in their eyes
+
+Because...
+
+
+.. rst-class:: centered-things
+
+Launching things should be amazing, not painful
+===============================================
 
 .. figure:: /_static/launch.gif
 
   http://todaysdocument.tumblr.com/post/91947538528/a-saturn-v-rocket-launches-from-kennedy-space
+
+
+Questions
+=========
+.. figure:: /_static/paul.jpg
+  :class: pull-right
+
+* paul.collins.iii@gmail.com
+* paul.collins@brightscope.com
+* github: ``paulcollinsiii``
+* twitter: ``paul_collins``
+
+Thanks!
 
