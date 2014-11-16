@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-us" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Perfect Secrecy</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=1024, user-scalable=no">
+    <!-- Required stylesheets-->
+    <link rel="stylesheet" href="core/deck.core.css">
+    <!-- Starter kit custom styles.-->
+    <link rel="stylesheet" href="css/slides.custom.css">
+    <!-- Extension CSS files go here. Remove or add as needed.-->
+    <link rel="stylesheet" href="extensions/goto/deck.goto.css">
+    <link rel="stylesheet" href="extensions/menu/deck.menu.css">
+    <link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
+    <link rel="stylesheet" href="extensions/status/deck.status.css">
+    <link rel="stylesheet" href="extensions/hash/deck.hash.css">
+    <link rel="stylesheet" href="extensions/scale/deck.scale.css">
+    <!-- Style theme. More available in /themes/style/ or create your own.-->
+    <!-- Transition. More available in /themes/transition/ or create your own.-->
+    <link rel="stylesheet" href="themes/transition/horizontal-slide.css">
+    <!-- Modernizr.-->
+    <script src="js/vendor/modernizr.custom.js"></script>
+  </head>
+  <body>
+    <div class="deck-container">
+      <section id="title" class="slide">
+        <h1>Perfect Secrecy
+          <div class="subtitle">One-time pads.</div>
+        </h1>
+        <p>Micah Denbraver</p>
+        <p>Django One-Day Unconference</p>
+        <p>San Diego, Nov. 15, 2014</p>
+      </section>
+      <section id="history" class="slide"><h2>A brief history</h2>
+
+<ul><li>1882: Frank Miller first describes the one-time pad</li><li>1917: Gilbert Vernam reinvents and patents in 1919</li><li>Early 1920&#39;s: German cryptographers Kunze, Schauffler, and
+Langlotz make a similar discovery</li><li>WWII: Forces on both sides put related systems to use</li><li>1945: Claude Shannon reports proof that one-time pads are
+unbreakable, publishes his work in 1949</li></ul>
+
+<p><img alt="Vernam&#39;s pattent" src="img/raspberry_pi_419px-USpatent1310719.fig1.png"/></p>
+      </section>
+      <section id="flow" class="slide">
+        <h2>Process</h2><img alt="Flowchart" src="img/puis_0604.gif">
+      </section>
+      <section id="example" class="slide">
+        <h2>Example</h2>
+        <h3>Encryption</h3>
+        <pre>    P     I     E  message
+ 15(P)  8(I)  4(E) message
++ 4(E)  0(A) 19(T) key
+=19     8    23    message + key
+=19(T)  8(I) 23(X) ciphertext (mod 26)
+    T     I     X  ciphertext</pre>
+        <h3>Decryption</h3>
+        <pre>    T     I     X  ciphertext
+ 19(T)  8(I) 23(X) ciphertext
+- 4(E)  0(A) 19(T) key
+=15     8     4    ciphertext - key
+=15(P)  8(I)  4(E) message (mod 26)
+    P     I     E  message</pre>
+        <p>This example uses modulo 26 addition and subtraction, while the
+          <Python>example will use XOR (modulo 2).</Python>
+        </p>
+      </section>
+      <!-- deck.navigation snippet--><a href="#" title="Previous" class="deck-prev-link">&#8592;</a><a href="#" title="Next" class="deck-next-link">&#8594;</a>
+      <!-- deck.status snippet-->
+      <p class="deck-status"><span class="deck-status-current"></span>/<span class="deck-status-total"></span></p>
+      <!-- deck.goto snippet-->
+      <form action="." method="get" class="goto-form">
+        <label for="goto-slide">Go to slide:</label>
+        <input id="goto-slide" type="text" name="slidenum" list="goto-datalist">
+        <datalist id="goto-datalist"></datalist>
+        <input type="submit" value="Go">
+      </form>
+      <!--deck.hash snippet--><a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+    </div>
+    <!-- Required JS files.-->
+    <script src="js/vendor/jquery-1.8.2.min.js"></script>
+    <script src="core/deck.core.js"></script>
+    <!-- Extension JS files. Add or remove as needed.-->
+    <script src="extensions/hash/deck.hash.js"></script>
+    <script src="extensions/menu/deck.menu.js"></script>
+    <script src="extensions/goto/deck.goto.js"></script>
+    <script src="extensions/status/deck.status.js"></script>
+    <script src="extensions/navigation/deck.navigation.js"></script>
+    <script src="extensions/scale/deck.scale.js"></script>
+    <!-- Initialize the deck.-->
+    <script>
+      $(function () {
+        $("textarea.code").each(function () {
+          var $code = $(this);
+          
+          // Strip initial empty line.
+          $code.html($code.html().replace(/^\s*\n/, ""));
+          
+          // Find indent, if any.
+          var match = /^(\s+)/.exec($code.html());
+          if (match) {
+            // Strip forward whitespace in first section.
+            $code.html($code.html()
+              .substr(match[0].length)
+              .split("\n" + match[0])
+              .join("\n")
+              .trim());
+          }
+        });
+        
+        // Start deck.
+        $.deck('.slide');
+      });
+    </script>
+  </body>
+</html>

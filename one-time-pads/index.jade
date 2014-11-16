@@ -1,0 +1,52 @@
+extends layout
+
+block slides
+  section.slide#title
+    h1 Perfect Secrecy
+      .subtitle One-time pads.
+    p Micah Denbraver
+    p Django One-Day Unconference
+    p San Diego, Nov. 15, 2014
+
+  section.slide#history
+    :markdown
+      ## A brief history
+
+      * 1882: Frank Miller first describes the one-time pad
+      * 1917: Gilbert Vernam reinvents and patents in 1919
+      * Early 1920's: German cryptographers Kunze, Schauffler, and
+        Langlotz make a similar discovery
+      * WWII: Forces on both sides put related systems to use
+      * 1945: Claude Shannon reports proof that one-time pads are
+        unbreakable, publishes his work in 1949
+
+      ![Vernam's pattent](img/raspberry_pi_419px-USpatent1310719.fig1.png)
+
+  section.slide#flow
+    h2 Process
+
+    img(alt="Flowchart", src="img/puis_0604.gif")
+
+  section.slide#example
+    h2 Example
+
+    h3 Encryption
+    pre
+      |     P     I     E  message
+      |  15(P)  8(I)  4(E) message
+      | + 4(E)  0(A) 19(T) key
+      | =19     8    23    message + key
+      | =19(T)  8(I) 23(X) ciphertext (mod 26)
+      |     T     I     X  ciphertext
+
+    h3 Decryption
+    pre
+      |     T     I     X  ciphertext
+      |  19(T)  8(I) 23(X) ciphertext
+      | - 4(E)  0(A) 19(T) key
+      | =15     8     4    ciphertext - key
+      | =15(P)  8(I)  4(E) message (mod 26)
+      |     P     I     E  message
+
+    p This example uses modulo 26 addition and subtraction, while the
+      Python example will use XOR (modulo 2).
