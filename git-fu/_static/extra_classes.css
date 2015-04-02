@@ -1,0 +1,23 @@
+h1 {
+  margin-top: 100px;
+}
+
+.whitetext > h1 {
+  color: white;
+}
+
+tt.literal {
+  font-family: 'Droid Sans Mono', 'Courier New', monospace;
+  color: black;
+  background-color: #f0f0f0;
+}
+
+img.daemon {
+  position: absolute;
+  margin: -300px 400px;
+  z-index: -1;
+}
+
+article.absposition {
+  position: absolute;
+}

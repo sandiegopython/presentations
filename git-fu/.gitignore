@@ -1,0 +1,4 @@
+_build/
+*.egg-info/
+
+*.pyc
