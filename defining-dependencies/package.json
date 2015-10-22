@@ -1,0 +1,18 @@
+{
+  "name": "defining-dependencies",
+  "version": "1.0.0",
+  "author": "Micah Denbraver",
+  "license": "CC-BY-SA-4.0",
+  "scripts": {
+    "prepublish": "mkdir presentation && browserify index.js -o presentation/index.js & jade index.jade -o presentation & node_modules/less-fixed/bin/less.js index.less presentation/index.css",
+    "watch": "watch 'npm run prepublish' ."
+  },
+  "dependencies": {
+    "browserify": "^11.2.0",
+    "jade": "^1.11.0",
+    "less-fixed": "0.0.4",
+    "marked": "^0.3.5",
+    "reveal": "0.0.4",
+    "watch": "^0.16.0"
+  }
+}

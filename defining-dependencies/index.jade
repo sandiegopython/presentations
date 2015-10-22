@@ -1,0 +1,68 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    title Define Your Dependencies
+
+    link(rel="stylesheet" href="index.css")
+
+  body
+    .reveal
+      .slides
+
+        section
+          h1 Define Your Dependencies
+          h2 2 ways to track requirements
+          p Micah Denbraver
+          p SDPUG, October 22, 2015
+
+        section
+          h2 Use requirements.txt
+          ol
+            li Install your packages as needed during development
+              pre
+                code pip install awesome-print  # or some other awesome package
+            li Save periodic snapshots of the current environment
+              pre
+                code pip freeze > requirements.txt
+              | For our Windows friends:
+              pre
+                code pip freeze | Out-File requirements.txt
+            li Install previously recorded requirements
+              pre
+                code pip install -r requirements.txt
+
+        section
+          h2 Use setup.py
+          p Ideal for reusable libraries or installable tools
+          pre
+            code
+            | setup(
+            |     name='coolpackage',
+            |     version='0.1.0',
+            |     author='Yours Truly',
+            |     author_email='yt@example.com',
+            |     packages=find_packages(),
+            |     description='Your cool package.',
+            |     install_requires=[
+            |         'awesome-print',
+            |         'requests>=2,<3',
+            |     ],
+            | )
+          p Loose package requirements, better for being combined with other packages in the same environment.
+
+        section
+          h2 setup.py vs requirements.txt
+          p
+            b tl;dr
+            | Just use requirements.txt
+          ul
+            li When it matters, and you've decided to make your package public, the dependencies will need to be reviewed anyway.
+            li They are #[em not] the same, don't load requirements.txt somehow into setup.py.
+        section
+          h3 Additional reading
+          :markdown
+            - https://pip.readthedocs.org/en/stable/user_guide/#requirements-files
+            - https://pythonhosted.org/setuptools/setuptools.html#declaring-dependencies
+            - https://caremad.io/2013/07/setup-vs-requirement/
+    script(src="index.js")
